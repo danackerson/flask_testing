@@ -4,10 +4,14 @@ app = Flask(__name__)
 
 def add_numbers(a, b):
     """Adds two numbers and returns the result."""
+    if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+        raise TypeError("Inputs must be numeric")
     return a + b
 
 def multiply_numbers(a, b):
     """Multiplies two numbers and returns the result."""
+    if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+        raise TypeError("Inputs must be numeric")
     return a * b
 
 @app.route('/')
