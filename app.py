@@ -4,14 +4,18 @@ app = Flask(__name__)
 
 def add_numbers(a, b):
     """Adds two numbers and returns the result."""
-    if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
-        raise TypeError("Inputs must be numeric")
+    if isinstance(a, bool) or isinstance(b, bool):
+        raise TypeError("Boolean values are not allowed")
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Both inputs must be int or float")
     return a + b
 
 def multiply_numbers(a, b):
     """Multiplies two numbers and returns the result."""
-    if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
-        raise TypeError("Inputs must be numeric")
+    if isinstance(a, bool) or isinstance(b, bool):
+        raise TypeError("Boolean values are not allowed")
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Both inputs must be int or float")
     return a * b
 
 @app.route('/')
